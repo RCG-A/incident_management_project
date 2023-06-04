@@ -1,4 +1,4 @@
-export class UpdateAssignmentGroupDto {
+export class UpdateRoleDto {
     name?: string
     description?: string
 }
