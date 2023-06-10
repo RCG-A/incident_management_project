@@ -31,8 +31,8 @@ export class Incident {
     @Column()
     categoriesId: number
 
-    // @ManyToOne(() => Category, categories => categories.incident)
-    // categories: Category
+    @ManyToOne(() => Category, categories => categories.incident)
+    categories: Category
 
     @Column()
     subcategories1: number

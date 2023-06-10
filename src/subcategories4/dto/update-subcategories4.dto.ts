@@ -1,4 +1,7 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateSubcategories4Dto } from './create-subcategories4.dto';
+export class UpdateSubcategories4Dto {
 
-export class UpdateSubcategories4Dto extends PartialType(CreateSubcategories4Dto) {}
+    subcategories3Id?: number
+    name?: string
+    description?: string
+
+}
