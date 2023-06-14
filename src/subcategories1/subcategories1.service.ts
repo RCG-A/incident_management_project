@@ -34,7 +34,8 @@ export class Subcategories1Service {
     const updateSubcategories1Found = await this.subcategory1Repository.findOne({
       where: {
         id,
-      }
+      },
+      relations:['categories']
     })
 
     if (!updateSubcategories1Found) {
@@ -49,6 +50,7 @@ export class Subcategories1Service {
       where: {
         id,
       },
+      relations:['categories']
     })
 
     if (!categoryFound) {
