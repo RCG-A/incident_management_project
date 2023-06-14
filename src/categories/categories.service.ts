@@ -35,7 +35,6 @@ export class CategoriesService {
       where: {
         id,
       },
-      relations: ['product']
     })
 
     if (!categoryFound) {

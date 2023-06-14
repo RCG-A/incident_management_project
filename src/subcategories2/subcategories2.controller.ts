@@ -27,8 +27,4 @@ export class Subcategories2Controller {
     return this.subcategories2Service.update(+id, updateSubcategories2Dto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.subcategories2Service.remove(+id);
-  }
 }

@@ -27,8 +27,4 @@ export class Subcategories1Controller {
     return this.subcategories1Service.update(+id, updateSubcategories1Dto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.subcategories1Service.remove(+id);
-  }
 }
