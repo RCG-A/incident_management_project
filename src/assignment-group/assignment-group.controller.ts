@@ -27,8 +27,6 @@ export class AssignmentGroupController {
     return this.assignmentGroupService.update(+id, updateAssignmentGroupDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.assignmentGroupService.remove(+id);
-  }
+
+  
 }
