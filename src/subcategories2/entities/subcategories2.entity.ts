@@ -1,5 +1,4 @@
 import { Subcategories1 } from "src/subcategories1/entities/subcategories1.entity";
-import { Subcategories3 } from "src/subcategories3/entities/subcategories3.entity";
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({name: 'subcategories2'})
@@ -19,8 +18,5 @@ export class Subcategories2 {
 
     @ManyToOne(() => Subcategories1, subcategories1 => subcategories1.subcategories2)
     subcategories1: Subcategories1
-
-    // @OneToMany(() => Subcategories3, subcategories3 => subcategories3.subcategories2)
-    // subcategories3: Subcategories3[]
 
 }

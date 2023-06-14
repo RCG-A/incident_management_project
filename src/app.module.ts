@@ -7,8 +7,6 @@ import { IncidentsModule } from './incidents/incidents.module';
 import { CategoriesModule } from './categories/categories.module';
 import { Subcategories1Module } from './subcategories1/subcategories1.module';
 import { Subcategories2Module } from './subcategories2/subcategories2.module';
-import { Subcategories3Module } from './subcategories3/subcategories3.module';
-import { Subcategories4Module } from './subcategories4/subcategories4.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { RolesModule } from './roles/roles.module';
@@ -27,11 +25,11 @@ import { RolesModule } from './roles/roles.module';
     host: 'localhost',
     port: 3306,
     username: 'root',
-    password: 'Alonso959739006',
+    password: 'Kakarotossjgoddios',
     database: 'incidentmp',
     autoLoadEntities: true,
     synchronize: true
-  }),AssignmentGroupModule, UsersModule, IncidentsModule, CategoriesModule, Subcategories1Module, Subcategories2Module, Subcategories3Module, Subcategories4Module, AuthModule, RolesModule],
+  }),AssignmentGroupModule, UsersModule, IncidentsModule, CategoriesModule, Subcategories1Module, Subcategories2Module, AuthModule, RolesModule],
   controllers: [AppController],
   providers: [AppService],
 })
