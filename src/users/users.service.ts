@@ -36,7 +36,7 @@ export class UsersService {
 
   getUsers() {
       return this.userRepository.find({
-          relations: ['assignment-group', 'roles']
+          relations: ['role','assignmentGroup']
       })
   }
 
@@ -45,7 +45,7 @@ export class UsersService {
           where: {
               id
           },
-          relations: ['assignment-group', 'roles']
+          relations: ['role','assignmentGroup']
       })
 
       if (!userFound) {
