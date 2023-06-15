@@ -14,13 +14,11 @@ async function bootstrap() {
     .addTag('Auth')
     .addTag('Users')
     .addTag('assignment-group')
-    .addTag('categories')
     .addTag('incidents')
-    .addTag('rol')
+    .addTag('roles')
+    .addTag('categories')
     .addTag('subcategories1')
     .addTag('subcategories2')
-    .addTag('subcategories3')
-    .addTag('subcategories4')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);

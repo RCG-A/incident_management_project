@@ -4,6 +4,7 @@ import { UpdateRoleDto } from './dto/update-role.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Role } from './entities/role.entity';
 import { Repository } from 'typeorm';
+
 @Injectable()
 export class RolesService {
 
@@ -28,7 +29,7 @@ export class RolesService {
     return this.roleRepository.save(newRole)
 
   }
-////////////////////////7
+////////////////////////
 
 
 findAll() {

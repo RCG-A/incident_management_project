@@ -1,26 +1,54 @@
-import { Injectable } from '@nestjs/common';
-import { CreateAuthDto } from './dto/create-auth.dto';
-import { UpdateAuthDto } from './dto/update-auth.dto';
+import { HttpException, HttpStatus, Inject, Injectable, forwardRef } from '@nestjs/common';
+import { LoginAuthDto } from './dto/login-auth.dto';
+import { RegisterAuthDto } from './dto/register-auth.dto';
+// import { InjectRepository } from '@nestjs/typeorm';
+// import { Auth } from './entities/auth.entity';
+// import { Repository } from 'typeorm';
+import { UsersService } from 'src/users/users.service';
+import { hash, compare } from "bcrypt";
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
-  create(createAuthDto: CreateAuthDto) {
-    return 'This action adds a new auth';
+
+  constructor(
+    // @InjectRepository(Auth) private authRepository: Repository<Auth>,
+    @Inject(forwardRef(() => UsersService))
+    private usersService: UsersService,
+    private jwtService: JwtService
+  ) { }
+
+  // async registerUser(registerAuthDto: RegisterAuthDto) {
+  //   const { password } = registerAuthDto;
+  //   const plainToHash = await hash(password, 10)
+
+  //   registerAuthDto = { ...registerAuthDto, password: plainToHash }
+  //   return this.usersService.registerUser(registerAuthDto)
+  // }
+
+  async loginUser(loginAuthDto: LoginAuthDto) {
+    const { username, password } = loginAuthDto
+
+    const userFound = await this.usersService.userFound(username)
+    if (!userFound) {
+      return new HttpException('Usuario no encontrado', HttpStatus.NOT_FOUND)
+    }
+
+    const checkPassword = await compare(password, userFound.password)
+
+    if (!checkPassword) {
+      return new HttpException('Contraseña incorrecta', HttpStatus.UNAUTHORIZED)
+    }
+
+    const payload = {id: userFound.id, name: userFound.name}
+    const token = await this.jwtService.sign(payload)
+
+    const data = {
+      user: userFound,
+      token
+    }
+
+    return data;
   }
 
-  findAll() {
-    return `This action returns all auth`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} auth`;
-  }
-
-  update(id: number, updateAuthDto: UpdateAuthDto) {
-    return `This action updates a #${id} auth`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} auth`;
-  }
 }

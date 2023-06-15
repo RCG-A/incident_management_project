@@ -23,7 +23,7 @@ export class AssignmentGroupService {
     })
 
     if (AssignmentGroupFound) {
-      return new HttpException('El rol ya  existe', HttpStatus.CONFLICT)
+      return new HttpException('El grupo de asignación ya  existe', HttpStatus.CONFLICT)
     }
 
     const newAssignmentGroup = this.AssignmentGroupRepository.create(createAssignmentGroupDto)
@@ -43,11 +43,11 @@ export class AssignmentGroupService {
       },
     })
   
-    if (!AssignmentGroup) {
+    if (!AssignmentGroupFound) {
       return new HttpException('Creacion de rol erronea', HttpStatus.NOT_FOUND)
     }
   
-    return AssignmentGroup
+    return AssignmentGroupFound
   }
   
 
@@ -61,7 +61,7 @@ export class AssignmentGroupService {
     })
   
     if (!AssignmentGroupFound) {
-      return new HttpException('area no encontrada', HttpStatus.NOT_FOUND)
+      return new HttpException('grupo no encontrada', HttpStatus.NOT_FOUND)
     }
   
     const updateAssignmentGroup = Object.assign(AssignmentGroupFound, updateAssignmentGroupDto)

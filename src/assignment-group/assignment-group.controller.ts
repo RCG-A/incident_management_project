@@ -2,7 +2,9 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { AssignmentGroupService } from './assignment-group.service';
 import { CreateAssignmentGroupDto } from './dto/create-assignment-group.dto';
 import { UpdateAssignmentGroupDto } from './dto/update-assignment-group.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('assignment-group')
 @Controller('assignment-group')
 export class AssignmentGroupController {
   constructor(private readonly assignmentGroupService: AssignmentGroupService) {}

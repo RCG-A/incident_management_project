@@ -1,11 +1,8 @@
-export class CreateUserDto {
-
+export class RegisterAuthDto {
     DNI: string
+    password: string
     name: string
     lastname: string
     email: string
-    password: string
     roleId: number
-    assignmentGroupId: number
-
 }

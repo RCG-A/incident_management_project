@@ -31,7 +31,7 @@ export class User {
     role: Role
 
     @Column()
-    groupAssignId: number
+    assignmentGroupId: number
 
     @ManyToOne(() => AssignmentGroup, assignmentGroup => assignmentGroup.users)
     assignmentGroup: AssignmentGroup
