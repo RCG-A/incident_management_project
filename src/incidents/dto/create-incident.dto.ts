@@ -6,8 +6,6 @@ export class CreateIncidentDto {
     categoriesId: number
     subcategories1: number
     subcategories2: number
-    subcategories3: number
-    subcategories4: number
     assignmentGroupId: number
     assignedUserId: number
     briefDescription: string

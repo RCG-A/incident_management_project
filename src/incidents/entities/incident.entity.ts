@@ -41,12 +41,6 @@ export class Incident {
     subcategories2: number
 
     @Column()
-    subcategories3: number
-
-    @Column()
-    subcategories4: number
-
-    @Column()
     assignmentGroupId: number
 
     @ManyToOne(() => AssignmentGroup, assignmentGroup => assignmentGroup.incident)
