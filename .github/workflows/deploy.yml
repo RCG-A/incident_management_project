@@ -44,7 +44,7 @@ jobs:
           TS=$(date +%Y%m%d%H%M%S)
           for H in $HOSTS; do
             echo ">>> Deploy API en $H"
-            ssh -i ~/.ssh/id_ed25519 ${SSH_USER}@$H "sudo mkdir -p $RELEASES_DIR/${TS} && sudo chown -R www-data:www-data $RELEASES_DIR"
+            ssh -i ~/.ssh/id_ed25519 ${SSH_USER}@$H " mkdir -p $RELEASES_DIR/${TS} &&  chown -R www-data:www-data $RELEASES_DIR"
             scp -i ~/.ssh/id_ed25519 web1-api.tar.gz ${SSH_USER}@$H:/tmp/
             ssh -i ~/.ssh/id_ed25519 ${SSH_USER}@$H "\
               tar -xzf /tmp/web1-api.tar.gz -C $RELEASES_DIR/${TS} && \
