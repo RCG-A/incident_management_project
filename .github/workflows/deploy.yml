@@ -47,10 +47,10 @@ jobs:
             ssh -i ~/.ssh/id_ed25519 ${SSH_USER}@$H "sudo mkdir -p $RELEASES_DIR/${TS} && sudo chown -R www-data:www-data $RELEASES_DIR"
             scp -i ~/.ssh/id_ed25519 web1-api.tar.gz ${SSH_USER}@$H:/tmp/
             ssh -i ~/.ssh/id_ed25519 ${SSH_USER}@$H "\
-              sudo tar -xzf /tmp/web1-api.tar.gz -C $RELEASES_DIR/${TS} && \
-              sudo chown -R www-data:www-data $RELEASES_DIR/${TS} && \
-              sudo ln -sfn $RELEASES_DIR/${TS} $CURRENT_LINK && \
-              sudo systemctl restart ${SERVICE} && \
+              tar -xzf /tmp/web1-api.tar.gz -C $RELEASES_DIR/${TS} && \
+              chown -R www-data:www-data $RELEASES_DIR/${TS} && \
+              ln -sfn $RELEASES_DIR/${TS} $CURRENT_LINK && \
+              systemctl restart ${SERVICE} && \
               sleep 2 && \
               (curl -fsS http://127.0.0.1:4000/ >/dev/null || curl -fsS http://127.0.0.1:4000/health >/dev/null || true) \
             " || { echo 'FALLO en deploy backend'; exit 1; }
