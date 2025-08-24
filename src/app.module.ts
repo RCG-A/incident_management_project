@@ -13,7 +13,7 @@ import { RolesModule } from './roles/roles.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
-    // type: 'mysql',
+    // type: 'mariadb',
     // host: 'containers-us-west-207.railway.app',
     // port: 6030,
     // username: 'root',
@@ -21,10 +21,10 @@ import { RolesModule } from './roles/roles.module';
     // database: 'railway',
     // autoLoadEntities: true,    
     // synchronize: true
-    type: 'mysql',
-    host: 'localhost',
+    type: 'mariadb',
+    host: '192.168.0.106',
     port: 3306,
-    username: 'root',
+    username: 'admin',
     password: 'Alonso959739006',
     // password: 'Kakarotossjgoddios',
     database: 'incidentmp',
