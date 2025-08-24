@@ -26,7 +26,6 @@ import { RolesModule } from './roles/roles.module';
     port: 3306,
     username: 'admin',
     password: 'Alonso959739006',
-    // password: 'Kakarotossjgoddios',
     database: 'incidentmp',
     autoLoadEntities: true,
     synchronize: true
