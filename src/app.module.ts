@@ -22,7 +22,7 @@ import { RolesModule } from './roles/roles.module';
     // autoLoadEntities: true,    
     // synchronize: true
     type: 'mariadb',
-    host: '192.168.0.106',
+    host: 'localhost',
     port: 3306,
     username: 'admin',
     password: 'Alonso959739006',
